@@ -1,3 +1,5 @@
+//http://www.tutorialrepublic.com/codelab.php?topic=faq&file=bootstrap-keep-last-selected-tab-active-on-page-refresh
+
 var juis = {};
 
 juis.tabList = {
