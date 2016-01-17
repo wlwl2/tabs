@@ -1,0 +1,35 @@
+.g-tablist {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.g-tab {
+  display: inline-block;
+
+  a {
+    display: inline-block;
+    padding: 5px;
+    border: 2px solid;
+    border-bottom: 0;
+    background: #eef;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &[aria-selected="true"] {
+      background: #fff;
+      border-color: #000;
+      color: #000;
+    }
+  }
+}
+
+[aria-hidden="true"] {
+  display: none;
+}
+
+.g-tabpanel {
+  border: 2px solid;
+}
