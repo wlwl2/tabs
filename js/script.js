@@ -41,6 +41,8 @@ juis.tabList = {
   },
   activateTab: function () {
     //switch to the selected tab
+    //no point having bind?
+    //how to loop
     //when the first tab is clicked, show its tab panel and hide the other tab panels
     juis.tabList.tabs[0].onclick = function(){
       juis.tabList.tabpanels[0].setAttribute("aria-hidden", "false");
