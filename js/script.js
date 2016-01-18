@@ -26,9 +26,9 @@ juis.tabList = {
       document.getElementById("tab"+tabbuttonid).setAttribute("aria-hidden", "false");
     }
     else {
-      document.getElementById("tab1").setAttribute("aria-hidden", "false");
-      document.getElementById("tab2").setAttribute("aria-hidden", "true");
-      document.getElementById("tab3").setAttribute("aria-hidden", "true");
+      juis.tabList.tabpanels[0].setAttribute("aria-hidden", "false");
+      juis.tabList.tabpanels[1].setAttribute("aria-hidden", "true");
+      juis.tabList.tabpanels[2].setAttribute("aria-hidden", "true");
       localStorage.setItem('selectedtab', 'tabbutton1')
     }
 
