@@ -4,7 +4,6 @@ var juis = {};
 
 juis.tabList = {
   tabs: document.querySelectorAll(".g-tab"),
-  tabpanels: document.querySelectorAll(".g-tabpanel"),
   init: function() {
     //if the tab list doesn't exist
     if (!document.querySelector(".g-tablist")) {
@@ -22,14 +21,14 @@ juis.tabList = {
     //if not, default to first
     //hide non-selected tabs
     if (localStorage.length > 0) {
-      var tabbuttonid = localStorage.getItem("selectedtab")
+      var tabbuttonid = localStorage.getItem("selectedtab").substr(localStorage.getItem("selectedtab").length - 1)
       document.getElementById("tab"+tabbuttonid).setAttribute("aria-hidden", "false");
     }
     else {
-      juis.tabList.tabpanels[0].setAttribute("aria-hidden", "false");
-      juis.tabList.tabpanels[1].setAttribute("aria-hidden", "true");
-      juis.tabList.tabpanels[2].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', '1')
+      document.getElementById("tab1").setAttribute("aria-hidden", "false");
+      document.getElementById("tab2").setAttribute("aria-hidden", "true");
+      document.getElementById("tab3").setAttribute("aria-hidden", "true");
+      localStorage.setItem('selectedtab', 'tabbutton1')
     }
 
 
@@ -42,23 +41,26 @@ juis.tabList = {
   },
   activateTab: function () {
     //switch to the selected tab
-    juis.tabList.tabs[0].onclick = function(){
-      juis.tabList.tabpanels[0].setAttribute("aria-hidden", "false");
-      juis.tabList.tabpanels[1].setAttribute("aria-hidden", "true");
-      juis.tabList.tabpanels[2].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', '1')
+    //when the first tab is clicked, show its tab panel and hide the other tab panels
+    document.getElementById("tabbutton1").onclick = function(){
+      document.getElementById("tab1").setAttribute("aria-hidden", "false");
+      document.getElementById("tab2").setAttribute("aria-hidden", "true");
+      document.getElementById("tab3").setAttribute("aria-hidden", "true");
+      localStorage.setItem('selectedtab', 'tabbutton1')
     }
-    juis.tabList.tabs[1].onclick = function(){
-      juis.tabList.tabpanels[1].setAttribute("aria-hidden", "false");
-      juis.tabList.tabpanels[0].setAttribute("aria-hidden", "true");
-      juis.tabList.tabpanels[2].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', '2')
+    //when the second tab is clicked, show its tab panel and hide the other tab panels
+    document.getElementById("tabbutton2").onclick = function(){
+      document.getElementById("tab2").setAttribute("aria-hidden", "false");
+      document.getElementById("tab1").setAttribute("aria-hidden", "true");
+      document.getElementById("tab3").setAttribute("aria-hidden", "true");
+      localStorage.setItem('selectedtab', 'tabbutton2')
     }
-    juis.tabList.tabs[2].onclick = function(){
-      juis.tabList.tabpanels[2].setAttribute("aria-hidden", "false");
-      juis.tabList.tabpanels[0].setAttribute("aria-hidden", "true");
-      juis.tabList.tabpanels[1].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', '3')
+    //when the third tab is clicked, show its tab panel and hide the other tab panels
+    document.getElementById("tabbutton3").onclick = function(){
+      document.getElementById("tab3").setAttribute("aria-hidden", "false");
+      document.getElementById("tab2").setAttribute("aria-hidden", "true");
+      document.getElementById("tab1").setAttribute("aria-hidden", "true");
+      localStorage.setItem('selectedtab', 'tabbutton3')
     }
   }
 };
