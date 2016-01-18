@@ -22,14 +22,13 @@ juis.tabList = {
     //if not, default to first
     //hide non-selected tabs
     if (localStorage.length > 0) {
-      var tabbuttonid = localStorage.getItem("selectedtab").substr(localStorage.getItem("selectedtab").length - 1)
-      document.getElementById("tab"+tabbuttonid).setAttribute("aria-hidden", "false");
+      document.getElementById("tab"+localStorage.getItem("selectedtab")).setAttribute("aria-hidden", "false");
     }
     else {
       juis.tabList.tabpanels[0].setAttribute("aria-hidden", "false");
       juis.tabList.tabpanels[1].setAttribute("aria-hidden", "true");
       juis.tabList.tabpanels[2].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', 'tabbutton1')
+      localStorage.setItem('selectedtab', '1')
     }
 
 
@@ -47,21 +46,21 @@ juis.tabList = {
       juis.tabList.tabpanels[0].setAttribute("aria-hidden", "false");
       juis.tabList.tabpanels[1].setAttribute("aria-hidden", "true");
       juis.tabList.tabpanels[2].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', 'tabbutton1')
+      localStorage.setItem('selectedtab', '1')
     }
     //when the second tab is clicked, show its tab panel and hide the other tab panels
     juis.tabList.tabs[1].onclick = function(){
       juis.tabList.tabpanels[1].setAttribute("aria-hidden", "false");
       juis.tabList.tabpanels[0].setAttribute("aria-hidden", "true");
       juis.tabList.tabpanels[2].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', 'tabbutton2')
+      localStorage.setItem('selectedtab', '2')
     }
     //when the third tab is clicked, show its tab panel and hide the other tab panels
     juis.tabList.tabs[2].onclick = function(){
       juis.tabList.tabpanels[2].setAttribute("aria-hidden", "false");
       juis.tabList.tabpanels[1].setAttribute("aria-hidden", "true");
       juis.tabList.tabpanels[0].setAttribute("aria-hidden", "true");
-      localStorage.setItem('selectedtab', 'tabbutton3')
+      localStorage.setItem('selectedtab', '3')
     }
   }
 };
